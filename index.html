@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组练习</title>
+		<script type="text/javascript">
+		var arr=new Array();
+		arr["湖北省"]=["黄冈市","武汉市","襄阳市"];
+		arr["湖南省"]=["长沙市","马栏山","大本营"];
+		arr["山东省"]=["青岛市","烟台市","葫芦岛市"];
+		arr["山西省"]=["大同市","太原市","煤矿"];
+		function addsheng(){
+			var selectsheng=document.getElementById("sheng");
+			var str="";
+			for (var index in arr) {
+				str+="<option value='"+index+"'>"+index+"</option>";
+			}
+			selectsheng.innerHTML=str;
+			addshi()
+		}
+		function addshi(){
+			var sheng=document.getElementById("sheng").value;
+			var str="";
+			for(var i=0;i<arr[sheng].length;i++){
+				str+="<option value='"+arr[sheng][i]+"'>"+arr[sheng][i]+"</option>"
+			}
+			document.getElementById("shi").innerHTML=str;
+		}
+		
+		</script>
+		
+		
+	</head>
+	<body onload="addsheng()" onchange="addshi();">
+		<p>请选择省份
+			<select id="sheng" value="sheng"></select>
+		</p>
+		<p>请选择市区
+			<select id="shi" value="shi"></select>
+		</p>	
+	</body>
+</html>
